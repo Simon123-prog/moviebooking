@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking</title>
+    <link rel="stylesheet" href="movie_styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Movie Ticket Booking</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#movies">Movies</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Book Your Movie Tickets Online</h2>
+                <p>Experience the magic of cinema with our comfortable seats, state-of-the-art sound systems, and crystal-clear screens.</p>
+                <a href="#movies" class="btn">Browse Movies</a>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature">
+                <i class="fas fa-ticket-alt"></i>
+                <h3>Easy Booking</h3>
+                <p>Quick and hassle-free ticket booking process</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-couch"></i>
+                <h3>Comfortable Seats</h3>
+                <p>Premium recliner seats for maximum comfort</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-utensils"></i>
+                <h3>Food & Drinks</h3>
+                <p>Wide variety of snacks and beverages</p>
+            </div>
+        </section>
+
+        <section class="movies-container" id="movies">
+            <h2 class="section-title">Now Showing</h2>
+            <div class="movies-grid">
+                <!-- Movies will be loaded from JavaScript -->
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <h2 class="section-title">About Our Cinema</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to the best movie experience in town! Our cinema features:</p>
+                    <ul>
+                        <li>8 state-of-the-art screens</li>
+                        <li>4K digital projection with Dolby Atmos sound</li>
+                        <li>Comfortable reclining seats</li>
+                        <li>Wide selection of food and drinks</li>
+                        <li>Accessible facilities for all guests</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQddPdNk8ZrTz1t9p9WbITu9bndVyc_Z4XlFQ&s" alt="Cinema Interior">
+                </div>
+            </div>
+        </section>
+
+        <div class="booking-modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <button class="close-modal">&times;</button>
+                <div class="movie-details">
+                    <img id="modal-poster" src="" alt="Movie Poster">
+                    <div>
+                        <h2 id="modal-title"></h2>
+                        <p><strong>Genre:</strong> <span id="modal-genre"></span></p>
+                        <p><strong>Duration:</strong> <span id="modal-duration"></span> minutes</p>
+                        <p><strong>Language:</strong> <span id="modal-language"></span></p>
+                        <p><strong>Screen Type:</strong> <span id="modal-screen"></span></p>
+                    </div>
+                </div>
+
+                <div class="time-slots">
+                    <h3>Available Showtimes</h3>
+                    <div class="slots-container" id="time-slots">
+                        <!-- Time slots will be loaded from JavaScript -->
+                    </div>
+                </div>
+
+                <div class="seat-selection">
+                    <h3>Select Seats</h3>
+                    <div class="screen">SCREEN</div>
+                    <div class="seats-container" id="seats-container">
+                        <!-- Seats will be loaded from JavaScript -->
+                    </div>
+                    <div class="seat-legend">
+                        <div class="legend-item">
+                            <div class="seat available"></div>
+                            <span>Available</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="seat selected"></div>
+                            <span>Selected</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="seat occupied"></div>
+                            <span>Occupied</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-form">
+                    <h3>Book Tickets</h3>
+                    <form id="booking-form">
+                        <div class="form-group">
+                            <label for="name">Full Name:</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tickets">Number of Tickets: <span id="selected-seats-count">0</span></label>
+                            <input type="hidden" id="selected-seats" name="selected-seats">
+                        </div>
+                        <button type="submit" class="book-btn">Confirm Booking</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="confirmation-modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <h2>Booking Confirmed!</h2>
+                <div class="confirmation-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <p id="confirmation-details"></p>
+                <button class="close-confirmation">OK</button>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Cinema Street, Movie City</p>
+                <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                <p><i class="fas fa-envelope"></i> info@movieticketbooking.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Opening Hours</h3>
+                <p>Monday-Friday: 10:00 AM - 11:00 PM</p>
+                <p>Weekends: 9:00 AM - 12:00 AM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Movie Ticket Booking. School Project.</p>
+        </div>
+    </footer>
+
+    <script src="movie_script.js"></script>
+</body>
+</html>
